@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@id/dashboardFragment">
+
+
+    <include app:graph="@navigation/login_graph" />
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.theworld.androidtemplatewithnavcomponents.ui.dashboard.DashboardFragment"
+        android:label="@string/dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.theworld.androidtemplatewithnavcomponents.ui.profile.ProfileFragment"
+        android:label="@string/profile"
+        tools:layout="@layout/fragment_profile" />
+
+
+    <action
+        android:id="@+id/action_global_videoFragment"
+        app:destination="@id/playerFragment" />
+
+
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.theworld.androidtemplatewithnavcomponents.ui.player.PlayerFragment"
+        android:label="Player"
+        tools:layout="@layout/fragment_player">
+        <argument
+            android:name="url"
+            app:argType="string" />
+        <argument
+            android:name="is_live"
+            android:defaultValue="false"
+            app:argType="boolean" />
+    </fragment>
+
+</navigation>

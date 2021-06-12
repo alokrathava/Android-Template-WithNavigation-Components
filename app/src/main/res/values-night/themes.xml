@@ -1,0 +1,76 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.AndroidTemplateWithNavComponents" parent="Theme.MaterialComponents.Light.NoActionBar">
+
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorLightBlue</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@color/colorWhite</item>
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryVariant">@color/colorAccent</item>
+        <item name="colorOnSecondary">@color/colorBlack</item>
+        <item name="colorError">@color/colorRed</item>
+        <item name="colorOnError">@color/colorWhite</item>
+        <item name="colorSurface">@color/design_default_color_background</item>
+        <item name="colorOnSurface">@color/colorBlack</item>
+        <item name="android:colorBackground">@color/colorWhite</item>
+        <item name="colorOnBackground">@color/colorBlack</item>
+        <item name="scrimBackground">@color/colorWhite</item>
+
+
+        <item name="textAppearanceHeadline1">@style/TextAppearance.MaterialComponents.Headline1
+        </item>
+        <item name="textAppearanceHeadline2">@style/TextAppearance.MaterialComponents.Headline2
+        </item>
+        <item name="textAppearanceHeadline3">@style/TextAppearance.MaterialComponents.Headline3
+        </item>
+        <item name="textAppearanceHeadline4">@style/TextAppearance.MaterialComponents.Headline4
+        </item>
+        <item name="textAppearanceHeadline5">@style/TextAppearance.MaterialComponents.Headline5
+        </item>
+        <item name="textAppearanceHeadline6">@style/TextAppearance.MaterialComponents.Headline6
+        </item>
+        <item name="textAppearanceSubtitle1">@style/TextAppearance.MaterialComponents.Subtitle1
+        </item>
+        <item name="textAppearanceSubtitle2">@style/TextAppearance.MaterialComponents.Subtitle2
+        </item>
+        <item name="textAppearanceBody1">@style/TextAppearance.MaterialComponents.Body1</item>
+        <item name="textAppearanceBody2">@style/TextAppearance.MaterialComponents.Body2</item>
+        <item name="textAppearanceCaption">@style/TextAppearance.MaterialComponents.Caption</item>
+        <item name="textAppearanceButton">@style/TextAppearance.MaterialComponents.Button</item>
+        <item name="textAppearanceOverline">@style/TextAppearance.MaterialComponents.Overline</item>
+
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorBlack</item>
+
+        <item name="android:windowBackground">@color/window_background_color</item>
+
+
+    </style>
+
+
+    <style name="MyFloatingActionButton" parent="@style/Widget.MaterialComponents.FloatingActionButton">
+        <item name="materialThemeOverlay">@style/MyFabOverlay</item>
+    </style>
+
+    <style name="MyFabOverlay">
+        <item name="colorSecondary">@color/colorPrimary</item>
+        <!-- color used by the icon -->
+        <item name="colorOnSecondary">@color/colorWhite</item>
+    </style>
+
+
+    <style name="Theme.SplashTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!--        <item name="android:windowBackground">@drawable/splash_screen</item>-->
+    </style>
+
+
+    <style name="TrackSelectionDialog" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorAccent">@color/colorDarkBlue</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">@color/colorBlack</item>
+        <!-- Used for the background -->
+        <item name="android:background">@color/white_20</item>
+    </style>
+
+</resources>

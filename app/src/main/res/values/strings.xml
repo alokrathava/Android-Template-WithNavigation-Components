@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AndroidTemplateWithNavComponents</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="profile">Profile</string>
+    <string name="logout">Logout</string>
+    <string name="email">Email</string>
+</resources>

@@ -1,0 +1,2 @@
+rootProject.name = "AndroidTemplateWithNavComponents"
+include ':app'
