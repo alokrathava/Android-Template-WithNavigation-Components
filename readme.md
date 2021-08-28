@@ -1,7 +1,7 @@
 # Sample
 
 
-![Horizontal-CalendarView](https://raw.githubusercontent.com/rahulgohil08/AndroidTemplateWithNavigationComponents/master/sample/Android-Template-With-Nav-Components.gif)
+![Android-Template-With-Navigation-Components](https://raw.githubusercontent.com/rahulgohil08/AndroidTemplateWithNavigationComponents/master/sample/Android-Template-With-Nav-Components.gif)
 
 
 
