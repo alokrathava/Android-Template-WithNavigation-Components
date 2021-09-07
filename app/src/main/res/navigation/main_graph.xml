@@ -22,23 +22,5 @@
         tools:layout="@layout/fragment_profile" />
 
 
-    <action
-        android:id="@+id/action_global_videoFragment"
-        app:destination="@id/playerFragment" />
-
-
-    <fragment
-        android:id="@+id/playerFragment"
-        android:name="com.theworld.androidtemplatewithnavcomponents.ui.player.PlayerFragment"
-        android:label="Player"
-        tools:layout="@layout/fragment_player">
-        <argument
-            android:name="url"
-            app:argType="string" />
-        <argument
-            android:name="is_live"
-            android:defaultValue="false"
-            app:argType="boolean" />
-    </fragment>
 
 </navigation>

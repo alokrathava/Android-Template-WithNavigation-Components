@@ -12,10 +12,10 @@
             android:title="@string/profile" />
 
 
-        <item
-            android:id="@+id/playerFragment"
-            android:icon="@drawable/exo_controls_play"
-            android:title="Player" />
+<!--        <item-->
+<!--            android:id="@+id/playerFragment"-->
+<!--            android:icon="@drawable/exo_controls_play"-->
+<!--            android:title="Player" />-->
 
         <item
             android:id="@+id/logout"

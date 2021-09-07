@@ -161,11 +161,11 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
 
             R.id.loginFragment,
             R.id.registerFragment,
-            R.id.playerFragment,
-            -> {
-                displayToolbar(false)
-                manageDrawer(false)
-            }
+//            R.id.playerFragment,
+//            -> {
+//                displayToolbar(false)
+//                manageDrawer(false)
+//            }
 
             R.id.profileFragment
             -> {
