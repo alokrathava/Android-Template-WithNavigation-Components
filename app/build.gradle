@@ -58,7 +58,7 @@ dependencies {
 
 
     // OkHttp + Retrofit + GSON
-    def retrofitVersion = '2.9.0'
+    def retrofitVersion = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
@@ -93,7 +93,7 @@ dependencies {
 
 
     //Exo Player
-    def exoVersion = "2.12.0"
+    def exoVersion = "2.15.0"
 
     implementation "com.google.android.exoplayer:exoplayer:$exoVersion"
     implementation "com.google.android.exoplayer:exoplayer-core:$exoVersion"

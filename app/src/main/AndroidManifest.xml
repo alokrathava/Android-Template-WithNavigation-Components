@@ -16,6 +16,7 @@
         android:theme="@style/Theme.AndroidTemplateWithNavComponents">
 
         <activity
+            android:exported="true"
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize">
 

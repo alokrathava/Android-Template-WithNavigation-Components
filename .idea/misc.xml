@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout-land/fragment_player.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/fragment_player.xml" value="0.1" />
         <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/my_player_view.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

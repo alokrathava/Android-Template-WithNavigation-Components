@@ -16,8 +16,6 @@
         android:padding="0dp"
         app:auto_show="true"
         app:controller_layout_id="@layout/my_player_view"
-        app:fastforward_increment="10000"
-        app:rewind_increment="10000"
         app:use_controller="true" />
 
     <ProgressBar

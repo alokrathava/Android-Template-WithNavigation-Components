@@ -3,14 +3,17 @@ package com.theworld.androidtemplatewithnavcomponents.ui.player
 import android.app.Dialog
 import android.content.pm.ActivityInfo
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.*
+import android.view.WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.WindowCompat
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -33,10 +36,14 @@ import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import  com.theworld.androidtemplatewithnavcomponents.R
 import com.theworld.androidtemplatewithnavcomponents.databinding.FragmentPlayerBinding
+import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.decoder.DecoderReuseEvaluation
+import com.hrsports.cricketstreaming.utils.hideSystemUI
+import com.hrsports.cricketstreaming.utils.showSystemUI
 
 
 @AndroidEntryPoint
-class PlayerFragment : Fragment(R.layout.fragment_player), Player.EventListener, AnalyticsListener {
+class PlayerFragment : Fragment(R.layout.fragment_player), AnalyticsListener {
 
 
     companion object {
@@ -130,7 +137,9 @@ class PlayerFragment : Fragment(R.layout.fragment_player), Player.EventListener,
         binding.playerView.player = simpleExoPlayer
         simpleExoPlayer.seekTo(playbackPosition)
         simpleExoPlayer.playWhenReady = true
-        simpleExoPlayer.addListener(this)
+        simpleExoPlayer.addListener(onPlaybackStateChanged)
+
+
         simpleExoPlayer.addAnalyticsListener(this)
 
 
@@ -213,43 +222,30 @@ class PlayerFragment : Fragment(R.layout.fragment_player), Player.EventListener,
 
     }
 
-    override fun onPlayerError(error: ExoPlaybackException) {
 
-        if (isBehindLiveWindow(error)) {
-            simpleExoPlayer.seekToDefaultPosition()
-            simpleExoPlayer.prepare()
-            return
-        }
+    val onPlaybackStateChanged = object : Player.Listener { // player listener
 
-        simpleExoPlayer.pause()
-        binding.loadingSpinner.isVisible = true
+        override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+            when (playbackState) {
 
-    }
 
-    override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
-        if (playbackState == Player.STATE_BUFFERING) {
-
-            binding.loadingSpinner.isVisible = true
-
-        } else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED) {
-
-            binding.loadingSpinner.isVisible = false
-        }
-
-    }
-
-    override fun onTimelineChanged(timeline: Timeline, reason: Int) {
-        val manifest = simpleExoPlayer.currentManifest
-
-        Log.d(TAG, "onTimelineChanged is LIVE: ${simpleExoPlayer.isCurrentWindowLive}")
-
-//        simpleExoPlayer.seekToDefaultPosition()
-//        simpleExoPlayer.prepare()
-
-        if (manifest != null) {
-
-            Log.d(TAG, "onTimelineChanged: $manifest")
-            // Do something with the manifest.
+                Player.STATE_READY -> {
+//                    aspectRatioFrameLayout.setAspectRatio(16f / 9f)
+                    binding.loadingSpinner.isVisible = false
+                }
+                Player.STATE_ENDED -> {
+                    binding.loadingSpinner.isVisible = false
+                }
+                Player.STATE_BUFFERING -> {
+                    binding.loadingSpinner.isVisible = true
+                }
+                Player.STATE_IDLE -> {
+                    //your logic
+                }
+                else -> {
+                    binding.playerView.hideController()
+                }
+            }
         }
     }
 
@@ -270,15 +266,18 @@ class PlayerFragment : Fragment(R.layout.fragment_player), Player.EventListener,
         return false
     }
 
-    override fun onVideoInputFormatChanged(eventTime: AnalyticsListener.EventTime, format: Format) {
-        super.onVideoInputFormatChanged(eventTime, format)
+    override fun onVideoInputFormatChanged(
+        eventTime: AnalyticsListener.EventTime,
+        format: Format,
+        decoderReuseEvaluation: DecoderReuseEvaluation?
+    ) {
+        super.onVideoInputFormatChanged(eventTime, format, decoderReuseEvaluation)
 
         Log.d(TAG, "onVideoInputFormatChanged: Bit-Rates :::::: ${format.bitrate}")
         Log.d(
             TAG,
             "onVideoInputFormatChanged: Dimension :::::: ${format.width}X${format.height} "
         )
-
 
         Log.d(
             TAG,
@@ -453,8 +452,20 @@ class PlayerFragment : Fragment(R.layout.fragment_player), Player.EventListener,
 
             fullScreenButton.setImageResource(R.drawable.ic_fullscreen_enter)
 
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+//                WindowCompat.setDecorFitsSystemWindows(requireActivity().window, false)
+//            } else {
+//                @Suppress("DEPRECATION")
+//                requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
+//            }
+
             requireActivity().window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_VISIBLE
-            requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+
+//            requireActivity().showSystemUI()
+
+
+            requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
 
 
             val params = binding.playerView.layoutParams
@@ -470,6 +481,9 @@ class PlayerFragment : Fragment(R.layout.fragment_player), Player.EventListener,
             requireActivity().window.decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_FULLSCREEN
                     or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                     or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
+
+//            requireActivity().hideSystemUI()
+
 
             requireActivity().requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
 
