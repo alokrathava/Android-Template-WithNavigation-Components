@@ -8,6 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.hrsports.cricketstreaming.utils.*
 import com.theworld.androidtemplatewithnavcomponents.R
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
 import com.theworld.androidtemplatewithnavcomponents.databinding.FragmentLoginBinding
 import com.theworld.androidtemplatewithnavcomponents.utils.CustomValidation
 import com.theworld.androidtemplatewithnavcomponents.utils.Resource
@@ -101,7 +102,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 email = binding.edtEmail.normalText()
                 password = binding.edtPassword.normalText()
 
-                doLogin(email, password)
+                val requestData = UserLoginRequestData(email, password)
+
+//                doLogin(requestData)
             }
 
 
@@ -117,10 +120,9 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     /*----------------------------------------- Do Login -----------------------------------------*/
 
-    private fun doLogin(email: String, password: String) {
+    private fun doLogin(requestData: UserLoginRequestData) {
 
-
-        viewModel.login(email, password).observe(viewLifecycleOwner) { resource ->
+        viewModel.login(requestData).observe(viewLifecycleOwner) { resource ->
 
             isLoading(resource is Resource.Loading)
 

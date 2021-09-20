@@ -1,26 +1,23 @@
 package com.theworld.androidtemplatewithnavcomponents.network
 
+import com.theworld.androidtemplatewithnavcomponents.data.user.User
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserRegisterRequestData
 import okhttp3.ResponseBody
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface Api {
 
     /*------------------------------------ Login ------------------------------------*/
 
-    @FormUrlEncoded
-    @POST("login")
-    suspend fun login(
-        @Field("email") email: String,
-        @Field("password") password: String
-    ): ResponseBody
+    @POST("user/login")
+    suspend fun login(@Body loginRequestData: UserLoginRequestData): User
 
 
-    /*------------------------------------ Login ------------------------------------*/
+    /*--------------------------------- Social Login ------------------------------------*/
 
     @FormUrlEncoded
-    @POST("social_login")
+    @POST("user/social_login")
     suspend fun socialLogin(
         @Field("email") email: String,
         @Field("name") name: String,
@@ -31,14 +28,8 @@ interface Api {
 
     /*------------------------------------ Register ------------------------------------*/
 
-    @FormUrlEncoded
-    @POST("registration")
-    suspend fun register(
-        @Field("name") name: String,
-        @Field("email") email: String,
-        @Field("mobile_no") mobile_no: String,
-        @Field("password") password: String
-    ): ResponseBody
+    @POST("user/register")
+    suspend fun register(@Body registerRequestData: UserRegisterRequestData): User
 
 
     /*------------------------------------ Reset Password ------------------------------------*/
@@ -61,5 +52,10 @@ interface Api {
         @Field("new_pwd") password: String,
     ): ResponseBody
 
+
+    /*---------------------------------- Get Profile ------------------------------------*/
+
+    @GET("user/profile")
+    suspend fun getProfile(): User
 
 }

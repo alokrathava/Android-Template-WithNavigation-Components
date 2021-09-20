@@ -1,20 +1,23 @@
 package com.theworld.androidtemplatewithnavcomponents.ui.auth
 
+import androidx.lifecycle.liveData
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserRegisterRequestData
 import com.theworld.androidtemplatewithnavcomponents.utils.SafeApiCall
 import com.theworld.androidtemplatewithnavcomponents.network.Api
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 
-class AuthRepo @Inject constructor(private val api: Api) : SafeApiCall() {
+class AuthRepo @Inject constructor(private val api: Api) : SafeApiCall {
 
 
     /*-------------------- Login ---------------------*/
 
-    suspend fun login(
-        email: String,
-        password: String
-    ) = api.login(email, password)
-
+    suspend fun login(loginRequestData: UserLoginRequestData) = safeApiCall {
+        api.login(loginRequestData)
+    }
 
 
     /*-------------------- Social Login ---------------------*/
@@ -29,13 +32,10 @@ class AuthRepo @Inject constructor(private val api: Api) : SafeApiCall() {
 
     /*-------------------- Register ---------------------*/
 
+    suspend fun register(registerRequestData: UserRegisterRequestData) = safeApiCall {
+        api.register(registerRequestData)
+    }
 
-    suspend fun register(
-        name: String,
-        email: String,
-        mobile_no: String,
-        password: String
-    ) = api.register(name, email, mobile_no, password)
 
     /*------------------------------------ Reset Password ------------------------------------*/
 
@@ -53,5 +53,10 @@ class AuthRepo @Inject constructor(private val api: Api) : SafeApiCall() {
         currentPassword: String,
         password: String,
     ) = api.changePassword(userId, currentPassword, password)
+
+
+    /*-------------------- Profile ---------------------*/
+
+    suspend fun getProfile() = api.getProfile()
 
 }

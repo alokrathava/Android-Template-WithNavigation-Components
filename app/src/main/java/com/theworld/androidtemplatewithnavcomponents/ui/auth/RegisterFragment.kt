@@ -12,6 +12,8 @@ import com.hrsports.cricketstreaming.utils.handleApiError
 import com.hrsports.cricketstreaming.utils.normalText
 import com.hrsports.cricketstreaming.utils.snackbar
 import com.theworld.androidtemplatewithnavcomponents.R
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
+import com.theworld.androidtemplatewithnavcomponents.data.user.UserRegisterRequestData
 import com.theworld.androidtemplatewithnavcomponents.databinding.FragmentRegisterBinding
 import com.theworld.androidtemplatewithnavcomponents.utils.CustomValidation
 import dagger.hilt.android.AndroidEntryPoint
@@ -101,7 +103,10 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                     return@setOnClickListener
                 }
 
-                doRegister(name, email, mobileNo, password)
+                val requestData = UserRegisterRequestData(name, email, mobileNo, password)
+
+//                doRegister(requestData)
+
             }
 
 
@@ -113,25 +118,23 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
     /*----------------------------------------- Do Register -------------------------------*/
 
 
-    private fun doRegister(name: String, email: String, mobileNo: String, password: String) {
+    private fun doRegister(requestData: UserRegisterRequestData) {
 
+        viewModel.register(requestData).observe(viewLifecycleOwner) { resource ->
 
-        viewModel.register(name, email, mobileNo, password)
-            .observe(viewLifecycleOwner) { resource ->
+            isLoading(resource is Resource.Loading)
 
-                isLoading(resource is Resource.Loading)
+            when (resource) {
+                is Resource.Success -> {
 
-                when (resource) {
-                    is Resource.Success -> {
-
-                        requireView().snackbar("Registered Successfully")
-                        findNavController().navigateUp()
-                    }
-                    is Resource.Failure -> {
-                        handleApiError(resource)
-                    }
+                    requireView().snackbar("Registered Successfully")
+                    findNavController().navigateUp()
+                }
+                is Resource.Failure -> {
+                    handleApiError(resource)
                 }
             }
+        }
     }
 
 

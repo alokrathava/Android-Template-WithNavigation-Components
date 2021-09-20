@@ -5,7 +5,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 
-abstract class SafeApiCall {
+interface SafeApiCall {
 
     suspend fun <T> safeApiCall(
         apiCall: suspend () -> T
