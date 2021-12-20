@@ -1,4 +1,4 @@
-package com.hrsports.cricketstreaming.utils
+package com.theworld.androidtemplatewithnavcomponents.utils
 
 import android.R
 import android.annotation.TargetApi

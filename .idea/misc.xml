@@ -3,13 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/drawable-v24/chip_filter_radio_button_style.xml" value="0.1109375" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/drawable-v24/chip_radio_btn_selected.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/drawable-v24/chip_radio_btn_unselected.xml" value="0.1109375" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/drawable-v24/ic_warning.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/drawable-v24/radio_btn_selected.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/content_home.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/content_home2.xml" value="0.18365218000502148" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/fragment_change_password.xml" value="0.15026087454956302" />
         <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/fragment_player.xml" value="0.1" />
-        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/fragment_profile.xml" value="0.1" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/fragment_profile.xml" value="0.11686956909410458" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/layout_profile.xml" value="0.2086956590966153" />
+        <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/layout/layout_profile_items.xml" value="0.16695652727729227" />
         <entry key="..\:/Experiments/AndroidTemplateWithNavComponents/app/src/main/res/menu/drawer_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15_PREVIEW" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="1dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+
+        <ProgressBar
+            android:id="@+id/loading_spinner"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="-2dp"
+            android:indeterminate="true"
+            android:indeterminateTint="@color/colorPrimary"
+            android:scaleY="1"
+            android:visibility="gone" />
+
+        <!-- My Account Layout -->
+
+        <RelativeLayout
+            android:id="@+id/account_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/img_account"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_account" />
+
+
+            <TextView
+                android:id="@+id/tvEditProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/img_account"
+                android:padding="10dp"
+                android:text="Edit Profile"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/img_account_more"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvEditProfile"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+        <!-- EMI Calculator Layout -->
+
+        <RelativeLayout
+            android:id="@+id/changePasswordContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/img_calculator"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_lock" />
+
+
+            <TextView
+                android:id="@+id/tvChangePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/img_calculator"
+                android:padding="10dp"
+                android:text="Change Password"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/img_calculator_more"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvChangePassword"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/reportContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/imgReport"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_document"
+              />
+
+
+            <TextView
+                android:id="@+id/tvReport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/imgReport"
+                android:padding="10dp"
+                android:text="Manage Reports"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/img_report_more"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvReport"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+
+        <!-- FAQs -->
+
+        <RelativeLayout
+            android:id="@+id/container_wallet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/img_earnings"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_faq" />
+
+
+            <TextView
+                android:id="@+id/tvFaqs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/img_earnings"
+                android:padding="10dp"
+                android:text="FAQs"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/img_earnings_more"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvFaqs"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+        <!-- Help -->
+
+        <RelativeLayout
+            android:id="@+id/promote_business_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/img_promote_business"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_help" />
+
+
+            <TextView
+                android:id="@+id/tvHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/img_promote_business"
+                android:padding="10dp"
+                android:text="Help"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/img_promote_more"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvHelp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+
+
+        <!-- Video Help -->
+
+        <RelativeLayout
+             android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/imgVideoHelp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_video" />
+
+
+            <TextView
+                android:id="@+id/tvVideoHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/imgVideoHelp"
+                android:padding="10dp"
+                android:text="Video Help"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/imgVideoHelpMore"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvVideoHelp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+        <!-- Audio Help -->
+
+        <RelativeLayout
+             android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/imgAudioHelp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_music" />
+
+
+            <TextView
+                android:id="@+id/tvAudioHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/imgAudioHelp"
+                android:padding="10dp"
+                android:text="Audio Help"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/imgAudioMore"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvAudioHelp"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+
+        <!-- Logout Container -->
+
+        <RelativeLayout
+            android:id="@+id/logoutContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:clickable="true"
+            android:focusable="true">
+
+
+            <ImageView
+                android:id="@+id/imgLogout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerVertical="true"
+                android:padding="10dp"
+                android:src="@drawable/ic_logout" />
+
+
+            <TextView
+                android:id="@+id/tvLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@id/imgLogout"
+                android:padding="10dp"
+                android:text="Logout"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2" />
+
+
+            <ImageView
+                android:id="@+id/imgLogoutMore"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_forward" />
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_below="@id/tvLogout"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="15dp"
+                android:background="@color/cardBackgroundGray"
+                android:padding="5dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

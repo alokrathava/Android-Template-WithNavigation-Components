@@ -1,4 +1,4 @@
-package com.hrsports.cricketstreaming.utils
+package com.theworld.androidtemplatewithnavcomponents.utils
 
 import android.content.Context
 import android.content.SharedPreferences

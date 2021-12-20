@@ -6,7 +6,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.hrsports.cricketstreaming.utils.*
+import com.theworld.androidtemplatewithnavcomponents.utils.*
 import com.theworld.androidtemplatewithnavcomponents.R
 import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
 import com.theworld.androidtemplatewithnavcomponents.databinding.FragmentLoginBinding
@@ -48,6 +48,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         init()
         navigateUser()
         clickListeners()
+        observe()
 
     }
 
@@ -59,6 +60,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     }
 
+    private fun observe() {
+        collectLatestFlow(viewModel.snackbar) {
+            requireView().snackbar(it)
+        }
+    }
 
     /*----------------------------------------- Navigate User -------------------------------*/
 
@@ -104,7 +110,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
                 val requestData = UserLoginRequestData(email, password)
 
-//                doLogin(requestData)
+                doLogin(requestData)
             }
 
 
@@ -122,22 +128,23 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun doLogin(requestData: UserLoginRequestData) {
 
-        viewModel.login(requestData).observe(viewLifecycleOwner) { resource ->
+        collectLatestFlow(viewModel.login(requestData)) { resource ->
 
-            isLoading(resource is Resource.Loading)
+            /*  isLoading(resource is Resource.Loading)
 
-            when (resource) {
-                is Resource.Success -> {
+              when (resource) {
+                  is Resource.Success -> {
 
-//                        storeData(resource.value)
+  //                        storeData(resource.value)
 
-                }
-                is Resource.Failure -> {
-                    handleApiError(resource)
-                }
-            }
+                  }
+                  is Resource.Failure -> {
+                      handleApiError(resource)
+                  }
 
+                  else -> Unit*/
         }
+
     }
 
 
@@ -166,11 +173,6 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 //        }
 //    }
 //
-
-
-    private fun isLoading(isLoading: Boolean = true) {
-        binding.loadingSpinner.isVisible = isLoading
-    }
 
 
     /*----------------------------------------- Store Data -------------------------------*/

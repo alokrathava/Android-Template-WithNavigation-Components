@@ -6,16 +6,10 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.hrsports.cricketstreaming.utils.customValidation
-import com.theworld.androidtemplatewithnavcomponents.utils.Resource
-import com.hrsports.cricketstreaming.utils.handleApiError
-import com.hrsports.cricketstreaming.utils.normalText
-import com.hrsports.cricketstreaming.utils.snackbar
 import com.theworld.androidtemplatewithnavcomponents.R
-import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
 import com.theworld.androidtemplatewithnavcomponents.data.user.UserRegisterRequestData
 import com.theworld.androidtemplatewithnavcomponents.databinding.FragmentRegisterBinding
-import com.theworld.androidtemplatewithnavcomponents.utils.CustomValidation
+import com.theworld.androidtemplatewithnavcomponents.utils.*
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -105,7 +99,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
                 val requestData = UserRegisterRequestData(name, email, mobileNo, password)
 
-//                doRegister(requestData)
+                doRegister(requestData)
 
             }
 
@@ -120,7 +114,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
 
     private fun doRegister(requestData: UserRegisterRequestData) {
 
-        viewModel.register(requestData).observe(viewLifecycleOwner) { resource ->
+        collectLatestFlow(viewModel.register(requestData)) { resource ->
 
             isLoading(resource is Resource.Loading)
 
@@ -133,6 +127,7 @@ class RegisterFragment : Fragment(R.layout.fragment_register) {
                 is Resource.Failure -> {
                     handleApiError(resource)
                 }
+                else -> Unit
             }
         }
     }

@@ -2,7 +2,7 @@ package com.theworld.androidtemplatewithnavcomponents.di
 
 import com.google.gson.GsonBuilder
 import com.theworld.androidtemplatewithnavcomponents.network.Api
-import com.hrsports.cricketstreaming.utils.baseUrl
+import com.theworld.androidtemplatewithnavcomponents.utils.baseUrl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

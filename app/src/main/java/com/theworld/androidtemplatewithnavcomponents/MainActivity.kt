@@ -17,7 +17,7 @@ import androidx.navigation.ui.*
 import coil.load
 import coil.transform.CircleCropTransformation
 import com.google.android.material.navigation.NavigationView
-import com.hrsports.cricketstreaming.utils.*
+import com.theworld.androidtemplatewithnavcomponents.utils.*
 import com.theworld.androidtemplatewithnavcomponents.databinding.ActivityMainBinding
 import com.theworld.androidtemplatewithnavcomponents.utils.redirectToDestination
 import dagger.hilt.android.AndroidEntryPoint

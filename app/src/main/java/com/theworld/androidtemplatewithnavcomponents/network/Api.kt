@@ -3,6 +3,7 @@ package com.theworld.androidtemplatewithnavcomponents.network
 import com.theworld.androidtemplatewithnavcomponents.data.user.User
 import com.theworld.androidtemplatewithnavcomponents.data.user.UserLoginRequestData
 import com.theworld.androidtemplatewithnavcomponents.data.user.UserRegisterRequestData
+import com.theworld.androidtemplatewithnavcomponents.data.user.changePassword.ChangePasswordRequestData
 import okhttp3.ResponseBody
 import retrofit2.http.*
 
@@ -44,13 +45,8 @@ interface Api {
 
     /*------------------------------------ Change Password ------------------------------------*/
 
-    @FormUrlEncoded
     @POST("changepwd")
-    suspend fun changePassword(
-        @Field("user_id") userId: Int,
-        @Field("old_pwd") currentPassword: String,
-        @Field("new_pwd") password: String,
-    ): ResponseBody
+    suspend fun changePassword(@Body data: ChangePasswordRequestData): ResponseBody
 
 
     /*---------------------------------- Get Profile ------------------------------------*/
